@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Job Recommender</title>
+</head>
+<body>
+
+    <h2>Upload Your CV (PDF)</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="cv" required>
+        <br><br>
+        <button type="submit">Recommend Jobs</button>
+    </form>
+
+    {% if results %}
+        <h3>Recommended Jobs</h3>
+        <ul>
+        {% for job in results %}
+            <li>{{ job.title }} — Match: {{ job.score }}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+</body>
+</html>
